@@ -47,13 +47,13 @@ from mysql.connector import Error
 
 En este apartado se realiza:
 
-- Extracción de datos desde una API.
+- Extracción de datos desde una API
 
-- Creación de la base de datos en MySQL o desde Python.
+- Creación de la base de datos en MySQL o desde Python
 
-- Inserción de las 100 películas obtenidas.
+- Inserción de las 100 películas obtenidas
 
-- Preparación del entorno para las consultas posteriores.
+- Preparación del entorno para las consultas posteriores
 
 ### 2️⃣ Ejercicio
 
