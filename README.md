@@ -51,7 +51,7 @@ En este apartado se realiza:
 
 - **Creación de la base de datos** (en MySQL o desde Python)
 
-- **Inserción de películas obtenidas**
+- **Inserción de las películas obtenidas**
 
 - **Consultas sobre la base de datos creada**
 
