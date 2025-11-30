@@ -81,4 +81,4 @@ En este bloque se realizan **consultas SQL sobre la base de datos Sakila**, orga
 
 - **JOINs** (INNER JOIN: SOLO COINCIDENCIAS, LEFT JOIN:LA TABLA DE LA DERECHA TIENE NULLS): combinación de tablas relacionadas.
 
-- **Uso del modelo EER**: identificar las relaciones entre tablas cuando la consulta es compleja y requiere datos de varias tablas. Para generar el modelo: **MySQL Workbench**: DATABASE → REVERSE ENGINEER → seleccionar el esquema sakila.
+- **Uso del modelo EER**: identificar las relaciones entre tablas cuando la consulta es compleja y requiere datos de varias tablas. Para generar el modelo: **MySQL Workbench**: DATABASE → REVERSE ENGINEER → seleccionar la base de datos ( en este caso Sakila). 
