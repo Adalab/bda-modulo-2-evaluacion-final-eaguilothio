@@ -59,11 +59,26 @@ En este apartado se realiza:
 
 En este bloque se realizan **consultas SQL sobre la base de datos Sakila**, organizadas en dos niveles:
 
-- **Consultas típicas**:
-  - Filtrado de datos con `WHERE`
-  - Selección de columnas y tablas con `SELECT` y `FROM`
-  - Búsqueda de texto con `LIKE`
+- **Consultas básicas**:
+
+- **SELECT / FROM**: selección de columnas y tablas.
+
+- **WHERE**: filtrado de registros según condiciones específicas.
+
+- **LIKE / REGEXP**: búsqueda de texto dentro de columnas.
+
+- **DISTINCT**: eliminación de resultados duplicados.
+
+- **BETWEEN / IN / NOT IN**: filtrado por rangos y valores concretos.
 
 - **Consultas avanzadas**:
-  - Uso de funciones de agregación, como `AVG`, `COUNT`
-  - Agrupamiento de resultados con `GROUP BY`
+ 
+- **COUNT y AVG**: funciones de agregación utilizadas para obtener recuentos y promedios de datos.
+
+- **GROUP BY**: permite agrupar datos para aplicar funciones agregadas.
+
+- **ORDER BY**: ordenar los resultados mejora la interpretación.
+
+- **JOINs** (INNER JOIN: SOLO COINCIDENCIAS, LEFT JOIN:LA TABLA DE LA DERECHA TIENE NULLS): combinación de tablas relacionadas.
+
+- **Uso del modelo EER**: identificar las relaciones entre tablas cuando la consulta es compleja y requiere datos de varias tablas. Para generar el modelo: DATABASE → REVERSE ENGINEER → seleccionar el esquema sakila.
