@@ -59,7 +59,7 @@ En este apartado se realiza:
 
 En este bloque se realizan **consultas SQL sobre la base de datos Sakila**, organizadas en dos niveles:
 
-- **Consultas básicas**:
+**Consultas básicas**:
 
 - **SELECT / FROM**: selección de columnas y tablas.
 
@@ -71,7 +71,7 @@ En este bloque se realizan **consultas SQL sobre la base de datos Sakila**, orga
 
 - **BETWEEN / IN / NOT IN**: filtrado por rangos y valores concretos.
 
-- **Consultas avanzadas**:
+**Consultas avanzadas**:
  
 - **COUNT y AVG**: funciones de agregación utilizadas para obtener recuentos y promedios de datos.
 
