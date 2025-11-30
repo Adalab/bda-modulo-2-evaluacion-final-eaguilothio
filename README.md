@@ -26,19 +26,19 @@ Utiliza librerías externas, recuerda instalarlas en la terminal: pip install no
 
 Aquí se incluyen las que se han usado en el módulo:
 
-- Conectar y manejar Bases de Datos MySQL
+- Conectar y manejar Bases de Datos MySQL:
 import mysql.connector
 
-- Motor matemático para cálculos numéricos
+- Motor matemático para cálculos numéricos:
 import numpy as np
 
-- Manejo y análisis de datos en tablas (DataFrames)
+- Manejo y análisis de datos en tablas (DataFrames):
 import pandas as pd
 
-- Solicitudes HTTP para consumir APIs
+- Solicitudes HTTP para consumir APIs:
 import requests
 
-- Gestión de errores al conectar a MySQL
+- Gestión de errores al conectar a MySQL:
 from mysql.connector import Error
 
 ## 🗂️ Cómo Estructurar el Proyecto
