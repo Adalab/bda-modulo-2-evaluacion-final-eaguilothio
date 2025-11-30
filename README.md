@@ -49,11 +49,11 @@ En este apartado se realiza:
 
 - **Extracción de datos desde una API**
 
-- **Creación de la base de datos en MySQL o desde Python**
+- **Creación de la base de datos** (en MySQL o desde Python)
 
-- **Inserción de las 100 películas obtenidas**
+- **Inserción de películas obtenidas**
 
-- **Preparación del entorno para las consultas posteriores**
+- **Consultas sobre la base de datos creada**
 
 ### 2️⃣ Ejercicio
 
