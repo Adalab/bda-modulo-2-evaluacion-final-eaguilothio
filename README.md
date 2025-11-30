@@ -18,7 +18,7 @@ Asegúrate de tener instalado:
 
 - MySQL Workbench
 
-Si tu proyecto utiliza librerías externas, recuerda instalarlas en la terminal:
+Utiliza librerías externas, recuerda instalarlas en la terminal:
 
 pip install nombre-de-la-librería
 
