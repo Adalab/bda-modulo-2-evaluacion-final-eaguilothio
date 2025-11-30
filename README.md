@@ -55,7 +55,7 @@ En este apartado se realiza:
 
 - Preparación del entorno para las consultas posteriores.
 
-### 2️⃣ Ejercicio 2
+### 2️⃣ Ejercicio
 
 En este bloque se realizan **consultas SQL sobre la base de datos Sakila**, organizadas en dos niveles:
 
