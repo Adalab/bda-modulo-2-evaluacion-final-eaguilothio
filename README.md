@@ -18,27 +18,27 @@ git clone [URL-DE-TU-REPOSITORIO]
 
 Asegúrate de tener instalado:
 
-- Python 3
+- **Python 3**
 
-- MySQL Workbench
+- **MySQL Workbench**
 
-Utiliza librerías externas, recuerda instalarlas en la terminal: pip install nombre-de-la-librería
+Utiliza **librerías externas**, recuerda instalarlas en la terminal: pip install nombre-de-la-librería
 
 Aquí se incluyen las que se han usado en el módulo:
 
-- Conectar y manejar Bases de Datos MySQL:
+- **Conectar y manejar Bases de Datos MySQL**:
 import mysql.connector
 
-- Motor matemático para cálculos numéricos:
+- **Motor matemático para cálculos numéricos**:
 import numpy as np
 
-- Manejo y análisis de datos en tablas (DataFrames):
+- **Manejo y análisis de datos en tablas (DataFrames)**:
 import pandas as pd
 
-- Solicitudes HTTP para consumir APIs:
+- **Solicitudes para APIs**:
 import requests
 
-- Gestión de errores al conectar a MySQL:
+- **Gestión de errores al conectar a MySQL**:
 from mysql.connector import Error
 
 ## 🗂️ Cómo Estructurar el Proyecto
@@ -47,13 +47,13 @@ from mysql.connector import Error
 
 En este apartado se realiza:
 
-- Extracción de datos desde una API
+- **Extracción de datos desde una API**
 
-- Creación de la base de datos en MySQL o desde Python
+- **Creación de la base de datos en MySQL o desde Python**
 
-- Inserción de las 100 películas obtenidas
+- **Inserción de las 100 películas obtenidas**
 
-- Preparación del entorno para las consultas posteriores
+- **Preparación del entorno para las consultas posteriores**
 
 ### 2️⃣ Ejercicio
 
