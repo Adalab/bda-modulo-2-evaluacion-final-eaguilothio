@@ -81,4 +81,20 @@ En este bloque se realizan **consultas SQL sobre la base de datos Sakila**, orga
 
 - **JOINs** (INNER JOIN: SOLO COINCIDENCIAS, LEFT JOIN:LA TABLA DE LA DERECHA TIENE NULLS): combinación de tablas relacionadas.
 
-- **Uso del modelo EER**: identificar las relaciones entre tablas cuando la consulta es compleja y requiere datos de varias tablas. Para generar el modelo: **MySQL Workbench**: DATABASE → REVERSE ENGINEER → seleccionar la base de datos ( en este caso Sakila). 
+- **Uso del modelo EER**: cuando identificar las relaciones entre tablas es compleja. 
+
+**Para generar el modelo**:
+
+- Abre MySQL Workbench.
+
+- En la barra de menú, selecciona DATABASE → Reverse Engineer.
+
+- Elige la base de datos que quieres usar (en este caso, Sakila) y sigue los pasos del asistente para generar el modelo.
+
+**Para guardar el modelo**:
+
+- En el menú principal de MySQL Workbench, haz clic en File (Archivo).
+
+- Dentro de File, selecciona Export (Exportar).
+
+- En las opciones de exportación, elige el formato que desees, por ejemplo, Export as PDF (Exportar como PDF), y guarda el archivo en la ubicación que prefieras
