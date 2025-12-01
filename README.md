@@ -81,7 +81,9 @@ En este bloque se realizan **consultas SQL sobre la base de datos Sakila**, orga
 
 - **JOINs** (INNER JOIN: SOLO COINCIDENCIAS, LEFT JOIN:LA TABLA DE LA DERECHA TIENE NULLS): combinación de tablas relacionadas.
 
-- **Uso del modelo EER**: cuando identificar las relaciones entre tablas es compleja. 
+**IMPRESCINDIBLE**
+
+- **Uso del modelo EER**: cuando identificar las relaciones entre tablas resulta compleja. 
 
 **Para generar el modelo**:
 
