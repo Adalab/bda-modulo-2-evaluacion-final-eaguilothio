@@ -1,102 +1,108 @@
 # 🚀 Evaluación Final – Módulo 2
 
-¡Bienvenido/a al repositorio de mi **Evaluación Final del Módulo 2**!
+¡Bienvenido/a a mi **Evaluación Final del Módulo 2**!
 
-Este proyecto reúne y pone en práctica todo lo aprendido durante el módulo: desde la **extracción de datos mediante APIs**, hasta el **diseño y creación de bases de datos relacionales en MySQL**, finalizando con **consultas para analizar la información obtenida**.
+Este proyecto integra todo lo aprendido durante el módulo: desde la **extracción de datos mediante APIs**, hasta el **diseño y creación de bases de datos relacionales en MySQL**, finalizando con **consultas SQL para analizar la información obtenida**.
 
 ---
 
-## ✨ Cómo Ejecutar el Proyecto
+## 📂 Contenido del Proyecto
 
-Para ejecutarlo correctamente en tu equipo, sigue estos pasos:
+1. **Extracción de datos desde una API**
+2. **Creación y diseño de base de datos MySQL**
+3. **Inserción de datos en la base de datos**
+4. **Consultas SQL básicas y avanzadas para el análisis**
 
-### 1️⃣ Clonar el Repositorio
+---
 
+## ⚡ Cómo Ejecutar el Proyecto
+
+### 1️⃣ Clonar el repositorio
+
+```bash
 git clone [URL-DE-TU-REPOSITORIO]
+```
 
-### 2️⃣ Preparar el Entorno
+### 2️⃣ Preparar el entorno
 
 Asegúrate de tener instalado:
 
-- **Python 3**
+* **Python 3**
+* **MySQL Workbench**
 
-- **MySQL Workbench**
+---
 
-Utiliza **librerías externas**, recuerda instalarlas en la terminal: pip install nombre-de-la-librería
+## 📌 Descripción del Proyecto
 
-Aquí se incluyen las que se han usado en el módulo:
+### **Ejercicio 1: Extracción y gestión de datos de películas**
 
-- **Conectar y manejar Bases de Datos MySQL**:
-import mysql.connector
+#### **FASE 1: Extracción de datos**
 
-- **Motor matemático para cálculos numéricos**:
-import numpy as np
+* Definir la URL de la API.
+* Realizar la petición con `requests.get()`.
+* Verificar el código de estado (200 = éxito).
+* Convertir la respuesta a JSON.
+* Verificar que los datos son del tipo esperado (`list`).
+* Guardar los datos en un DataFrame de Pandas (`df_peliculas`).
+* Contar el número de registros para confirmar la extracción (100 películas).
 
-- **Manejo y análisis de datos en tablas (DataFrames)**:
-import pandas as pd
+#### **FASE 2: Creación de la base de datos (Python → MySQL)**
 
-- **Solicitudes para APIs**:
-import requests
+* Transformar columnas que no son compatibles con SQL (listas → texto).
+* Conectar con MySQL usando `mysql.connector.connect()` con manejo de errores.
+* Crear la base de datos `peliculas_db` si no existe.
+* Crear la tabla `peliculas` con las columnas: `id`, `titulo`, `año`, `duracion`, `genero`, `adultos`, `subtitulos`.
+* Manejar posibles errores durante la conexión y creación de tablas.
 
-- **Gestión de errores al conectar a MySQL**:
-from mysql.connector import Error
+#### **FASE 3: Inserción de datos**
 
-## 🗂️ Cómo Estructurar el Proyecto
+* Definir la consulta SQL con placeholders `%s`.
+* Limpiar los datos (NaN → `None`).
+* Convertir el DataFrame a lista de listas para `executemany()`.
+* Insertar todos los registros de manera eficiente.
+* Confirmar la operación con `commit()` y mostrar el número de registros insertados.
+* Manejar errores de inserción y mostrar mensajes claros.
 
-### 1️⃣ Ejercicio
+#### **FASE 4: Consultas SQL**
 
-En este apartado se realiza:
+* Consultas simples y complejas para analizar los datos insertados.
+* La segunda consulta es más avanzada, requiere comprender las transformaciones previas del DataFrame.
 
-- **Extracción de datos desde una API**
+---
 
-- **Creación de la base de datos** (en MySQL o desde Python)
+### **Ejercicio 2: Consultas sobre la base de datos Sakila**
 
-- **Inserción de las películas obtenidas**
+Se realizan **consultas SQL** organizadas en dos niveles:
 
-- **Consultas sobre la base de datos creada**
+#### **Consultas básicas**
 
-### 2️⃣ Ejercicio
+* `SELECT / FROM`: selección de columnas y tablas.
+* `WHERE`: filtrado por condiciones.
+* `LIKE / REGEXP`: búsqueda de texto.
+* `DISTINCT`: eliminar duplicados.
+* `BETWEEN / IN / NOT IN`: filtrado por rangos o valores específicos.
 
-En este bloque se realizan **consultas SQL sobre la base de datos Sakila**, organizadas en dos niveles:
+#### **Consultas avanzadas**
 
-**Consultas básicas**:
+* Funciones de agregación: `COUNT`, `AVG`.
+* Agrupamiento: `GROUP BY`.
+* Ordenamiento: `ORDER BY`.
+* Joins: `INNER JOIN` (solo coincidencias), `LEFT JOIN` (incluye NULLs).
 
-- **SELECT / FROM**: selección de columnas y tablas.
+#### **Uso del modelo EER**
 
-- **WHERE**: filtrado de registros según condiciones específicas.
+Para consultas complejas, se recomienda generar un **modelo EER**:
 
-- **LIKE / REGEXP**: búsqueda de texto dentro de columnas.
+1. Abrir MySQL Workbench → `Database` → `Reverse Engineer`.
+2. Seleccionar la base de datos Sakila y seguir el asistente.
+3. Guardar el modelo: `File` → `Export` → `Export as PDF` (o en otro formato).
 
-- **DISTINCT**: eliminación de resultados duplicados.
+---
 
-- **BETWEEN / IN / NOT IN**: filtrado por rangos y valores concretos.
+## 📝 Notas finales
 
-**Consultas avanzadas**:
- 
-- **COUNT y AVG**: funciones de agregación utilizadas para obtener recuentos y promedios de datos.
+- Ejercicio 1: Aprendes todo el proceso de trabajo con datos: desde la extracción de la API, pasando por la limpieza y transformación, hasta el almacenamiento en la base de datos, manejando errores y dejando los datos listos para análisis.
 
-- **GROUP BY**: permite agrupar datos para aplicar funciones agregadas.
+- Ejercicio 2: Con la base de datos Sakila, practicas consultas avanzadas y relaciones entre tablas, comprendiendo cómo conectar y analizar información compleja.
 
-- **ORDER BY**: ordenar los resultados mejora la interpretación.
 
-- **JOINs** (INNER JOIN: SOLO COINCIDENCIAS, LEFT JOIN:LA TABLA DE LA DERECHA TIENE NULLS): combinación de tablas relacionadas.
-
-**IMPRESCINDIBLE**
-
-- **Uso del modelo EER**: cuando identificar las relaciones entre tablas resulta compleja. 
-
-**Para generar el modelo**:
-
-- Abre MySQL Workbench.
-
-- En la barra de menú, selecciona DATABASE → Reverse Engineer.
-
-- Elige la base de datos que quieres usar (en este caso, Sakila) y sigue los pasos del asistente para generar el modelo.
-
-**Para guardar el modelo**:
-
-- En el menú principal de MySQL Workbench, haz clic en File (Archivo).
-
-- Dentro de File, selecciona Export (Exportar).
-
-- En las opciones de exportación, elige el formato que desees, por ejemplo, Export as PDF (Exportar como PDF), y guarda el archivo en la ubicación que prefieras
