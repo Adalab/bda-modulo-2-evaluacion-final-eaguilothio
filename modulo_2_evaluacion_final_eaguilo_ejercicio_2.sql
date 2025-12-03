@@ -130,6 +130,6 @@ WHERE description REGEXP 'dog' OR description REGEXP 'cat';
 SELECT title AS titulo_peliculas, release_year AS año_lanzamiento
 FROM film
 WHERE release_year BETWEEN 2005 AND 2010
-ORDER BY title ASC
+ORDER BY title ASC;
 
 -- Añadir ORDER BY ordena los resultados alfabéticamente, lo cual mejora la visualización.
