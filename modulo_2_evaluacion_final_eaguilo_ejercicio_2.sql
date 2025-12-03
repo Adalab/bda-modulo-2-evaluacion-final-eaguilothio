@@ -9,41 +9,46 @@ USE sakila; -- selecciona la base de datos
 SELECT DISTINCT title AS titulo_pelicula
 FROM film;
 
--- DISTINCT evita duplicados.
+-- DISTINCT: muestra cada valor solo una vez, evitando duplicados.
+-- AS: pone un nombre más fácil de entender a la columna que aparece en el resultado.
 
 -- Ejercicio 2. Muestra los nombres de todas las peliculas que tengan una clasificacion de "PG-13".
 SELECT title AS titulo_pelicula, rating AS clasificacion
 FROM film
 WHERE rating = "PG-13"; 
 
--- = : Se usa cuando solo hay un valor que queremos comparar. 
+-- =  : Se usa cuando queremos comparar un SOLO valor específico.
+--      Ejemplo: rating = 'PG-13'
 
--- IN: incluye solo las peliculas con clasificación PG-13.
+-- IN : Se usa cuando queremos filtrar por VARIOS posibles valores.
+--      Ejemplo: rating IN ('PG', 'PG-13', 'G')
 
 -- Ejercicio 3. Encuentra el titulo y la descripcion de todas las peliculas que contengan la palabra amazing en su descripcion.
 SELECT title AS titulo_pelicula, description AS descripcion_pelicula
 FROM film
 WHERE description LIKE '%amazing%'; 
 
--- LIKE: Selecciona peliculas cuyo texto de descripcion incluya "amazing".
+-- LIKE: busca si una palabra o un patrón aparece en un texto.
+-- %palabra%: Busca todos los registros donde la palabra aparezca en cualquier posición.
 
 -- Ejercicio 4. Encuentra el titulo de todas las peliculas que tengan una duracion mayor a 120 minutos.
 SELECT title AS titulo_pelicula
 FROM film
 WHERE length > 120; 
 
--- >: Filtra películas con duración mayor a 120 minutos.
+-- Operadores comparativos:
+-- = : igual, != : distinto, > : mayor, < : menor, >= : mayor o igual, <= : menor o igual
 
 -- Ejercicio 5. Recupera los nombres de todos los actores.
 SELECT first_name AS nombre_actor, last_name AS apellido_actor
 FROM actor;
 
+-- El nombre completo de un actor se compone de dos columnas: un nombre (first_name) y un apellido (last_name).
+
 -- Ejercicio 6. Encuentra el nombre y apellido de los actores que tengan "Gibson" en su apellido.
 SELECT first_name AS nombre_actor, last_name AS apellido_actor
 FROM actor
 WHERE last_name LIKE '%Gibson%'; 
-
--- LIKE: encuentra texto que incluya "Gibson".
 
 -- Ejercicio 7. Encuentra los nombres de los actores que tengan un actor_id entre 10 y 20.
 SELECT actor_id AS id_actor, first_name AS nombre_actor, last_name AS apellido_actor
@@ -66,9 +71,9 @@ FROM film
 GROUP BY rating
 ORDER BY COUNT(film_id) DESC;
 
--- COUNT: funcion agregada. Cuenta películas por clasificacion.
+-- COUNT: funcion agregada. Cuenta cuantas filas hay en un conjunto de datos.
 -- GROUP BY: agrupa resultados según la columna usada con la funcion agregada.
--- ORDER BY: ordenar de mayor a menor numero de peliculas. Ayuda a la visualizacion.
+-- ORDER BY: ordena de mayor a menor. Ayuda a la visualizacion.
 
 -- Ejercicio 10. Encuentra la cantidad total de peliculas alquiladas por cada cliente y muestra el ID del cliente, su nombre y apellido junto con la cantidad de peliculas alquiladas.
 SELECT c.customer_id AS id_cliente , c.first_name AS nombre_cliente, c.last_name AS apellido_cliente, COUNT(r.rental_id) AS total_peliculas_alquiladas
@@ -77,7 +82,7 @@ LEFT JOIN rental r ON c.customer_id = r.customer_id
 GROUP BY c.customer_id, c.first_name, c.last_name
 ORDER BY COUNT(r.rental_id) DESC;
 
--- LEFT JOIN entre customer y rental: muestra todos los clientes, incluso si no tienen alquileres (0 películas alquiladas).
+-- LEFT JOIN: combina los datos de customer y rental, mostrando todos los clientes, incluso si no han alquilado películas (en ese caso, COUNT será 0).
 
 -- Ejercicio 11. Encuentra la cantidad total de peliculas alquiladas por categoria y muestra el nombre de la categoría junto con el recuento de alquileres.
 
@@ -90,16 +95,18 @@ JOIN category c ON fc.category_id = c.category_id
 GROUP BY c.name
 ORDER BY COUNT(r.rental_id) DESC;
 
--- Determino qué buscar: relación entre películas, alquiler y categoría; luego miro según el diagrama.
--- JOIN: une tablas mostrando solo coincidencias.
--- LEFT JOIN: se usaría para incluir categorías sin películas (NULL).
+-- Primero identifico la información que quiero obtener (cantidad de películas alquiladas por categoría) y determino qué tablas necesito revisar en el diagrama.
+-- Inicialmente determino: film, rental y category. 
+-- Luego reviso las relaciones entre estas tablas para saber cómo unirlas correctamente, 
+-- y también descubro si hay otras tablas involucradas que a primera vista no había considerado.
+-- JOIN: devuelve solo los registros que tienen coincidencias en ambas tablas.
 
 -- Ejercicio 12. Encuentra el promedio de duracion de las peliculas para cada clasificacion de la tabla film y muestra la clasificacion junto con el promedio de duracion.
 SELECT AVG(length) AS duracion_promedio_peliculas, rating AS clasificacion
 FROM film
 GROUP BY rating;
 
--- AVG: calcula el promedio de duración de las películas.
+-- AVG: función agregada para calcular el promedio.
 
 -- Ejercicio 13. Encuentra el nombre y apellido de los actores que aparecen en la película con titulo "Indian Love"
 SELECT a.first_name AS nombre_actor, a.last_name AS apellido_actor
@@ -108,18 +115,18 @@ JOIN film_actor fa ON a.actor_id = fa.actor_id
 JOIN film f ON fa.film_id = f.film_id
 WHERE title = "Indian Love";
 
--- Determino qué buscar: actor y película; luego reviso el diagrama para ver la relación (film_actor).
+-- Primero determino qué información quiero obtener: actor y película. 
+-- Luego reviso el diagrama para identificar la relación entre ambas, usando la tabla intermedia film_actor.
 
 -- Ejercicio 14. Muestra el título de todas las películas que contengan la palabra "dog" o "cat" en su descripción.
 SELECT title AS titulo_pelicula
 FROM film
 WHERE description REGEXP 'dog' OR description REGEXP 'cat';
 
--- REGEXP: filtra películas cuya descripción contenga "dog" o "cat". Equivalente a LIKE.
+-- REGEXP: A diferencia de LIKE, no necesitas % al principio o al final si usas patrones adecuados.
+-- Es más flexible, porque puedes combinar varios patrones, rangos de letras, opcionales, etc.
 
 -- Ejercicio 15. Encuentra el título de todas las películas que fueron lanzadas entre el año 2005 y 2010.
 SELECT title AS titulo_peliculas, release_year AS año_lanzamiento
 FROM film
 WHERE release_year BETWEEN 2005 AND 2010;
-
--- BETWEEN: filtra películas lanzadas entre 2005 y 2010 (inclusive).
