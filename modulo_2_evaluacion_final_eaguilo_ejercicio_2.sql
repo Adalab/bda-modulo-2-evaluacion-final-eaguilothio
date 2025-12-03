@@ -115,8 +115,8 @@ JOIN film_actor fa ON a.actor_id = fa.actor_id
 JOIN film f ON fa.film_id = f.film_id
 WHERE title = "Indian Love";
 
--- Primero determino qué información quiero obtener: actor y película. 
--- Luego reviso el diagrama para identificar la relación entre ambas, usando la tabla intermedia film_actor.
+-- Primero determino qué información quiero obtener: actor y film. 
+-- Luego reviso el diagrama para identificar la relación entre ambas, hay una tabla intermedia film_actor.
 
 -- Ejercicio 14. Muestra el título de todas las películas que contengan la palabra "dog" o "cat" en su descripción.
 SELECT title AS titulo_pelicula
