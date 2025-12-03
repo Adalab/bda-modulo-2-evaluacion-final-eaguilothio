@@ -34,10 +34,11 @@ WHERE description LIKE '%amazing%';
 -- Ejercicio 4. Encuentra el titulo de todas las peliculas que tengan una duracion mayor a 120 minutos.
 SELECT title AS titulo_pelicula
 FROM film
-WHERE length > 120; 
+WHERE length > 120
+ORDER BY length DESC;
 
--- Operadores comparativos:
--- = : igual, != : distinto, > : mayor, < : menor, >= : mayor o igual, <= : menor o igual
+-- Podemos usar operadores comparativos: = : igual, != : distinto, > : mayor, < : menor, >= : mayor o igual, <= : menor o igual
+-- ORDER BY: Ordena de mayor a menor. Ayuda a la visualizacion de los datos.
 
 -- Ejercicio 5. Recupera los nombres de todos los actores.
 SELECT first_name AS nombre_actor, last_name AS apellido_actor
@@ -73,7 +74,6 @@ ORDER BY COUNT(film_id) DESC;
 
 -- COUNT: Funcion agregada. Cuenta cuantas filas hay en un conjunto de datos.
 -- GROUP BY: Agrupa resultados según la columna usada con la funcion agregada.
--- ORDER BY: Ordena de mayor a menor. Ayuda a la visualizacion.
 
 -- Ejercicio 10. Encuentra la cantidad total de peliculas alquiladas por cada cliente y muestra el ID del cliente, su nombre y apellido junto con la cantidad de peliculas alquiladas.
 SELECT c.customer_id AS id_cliente , c.first_name AS nombre_cliente, c.last_name AS apellido_cliente, COUNT(r.rental_id) AS total_peliculas_alquiladas
@@ -129,4 +129,7 @@ WHERE description REGEXP 'dog' OR description REGEXP 'cat';
 -- Ejercicio 15. Encuentra el título de todas las películas que fueron lanzadas entre el año 2005 y 2010.
 SELECT title AS titulo_peliculas, release_year AS año_lanzamiento
 FROM film
-WHERE release_year BETWEEN 2005 AND 2010;
+WHERE release_year BETWEEN 2005 AND 2010
+ORDER BY title ASC
+
+-- Añadir ORDER BY ordena los resultados alfabéticamente, lo cual mejora la visualización.
