@@ -39,34 +39,31 @@ Asegúrate de tener instalado:
 #### **FASE 1: Extracción de datos**
 
 * Definir la URL de la API.
-* Realizar la petición con `requests.get()`.
+* Realizar la petición con requests.get().
 * Verificar el código de estado (200 = éxito).
 * Convertir la respuesta a JSON.
-* Verificar que los datos son del tipo esperado (`list`).
-* Guardar los datos en un DataFrame de Pandas (`df_peliculas`).
+* Verificar que los datos son del tipo esperado (list).
+* Guardar los datos en un DataFrame de Pandas (df_peliculas).
 * Contar el número de registros para confirmar la extracción (100 películas).
 
 #### **FASE 2: Creación de la base de datos (Python → MySQL)**
-
-* Transformar columnas que no son compatibles con SQL (listas → texto).
-* Conectar con MySQL usando `mysql.connector.connect()` con manejo de errores.
-* Crear la base de datos `peliculas_db` si no existe.
-* Crear la tabla `peliculas` con las columnas: `id`, `titulo`, `año`, `duracion`, `genero`, `adultos`, `subtitulos`.
+* Conectar con MySQL: use_pure=True garantiza compatibilidad con Python 3.12, evitando problemas en el Kernel.
+* Crear la base de datos peliculas_db si no existe.
+* Crear la tabla peliculas con las columnas: `id`, `titulo`, `año`, `duracion`, `genero`, `adultos`, `subtitulos`.
 * Manejar posibles errores durante la conexión y creación de tablas.
 
 #### **FASE 3: Inserción de datos**
 
-* Definir la consulta SQL con placeholders `%s`.
-* Limpiar los datos (NaN → `None`).
-* Convertir el DataFrame a lista de listas para `executemany()`.
-* Insertar todos los registros de manera eficiente.
-* Confirmar la operación con `commit()` y mostrar el número de registros insertados.
-* Manejar errores de inserción y mostrar mensajes claros.
+* Definir la consulta SQL con placeholders %s.
+* Reemplazar valores NaN por None para que MySQL los acepte como NULL.
+* Convertir el DataFrame a lista de listas para poder insertarlo en MySQL.
+* Insertar todos los registros con executemany() y confirmar la operación con commit().
+* Manejar posibles errores e informar del número de registros insertados.
 
 #### **FASE 4: Consultas SQL**
 
-* Consultas simples y complejas para analizar los datos insertados.
-* La segunda consulta es más avanzada, requiere comprender las transformaciones previas del DataFrame.
+* Realizar tanto consultas simples como consultas más complejas para analizar los datos insertados en la base de datos.
+* Para facilitar la lectura de los resultados, algunas consultas se muestran utilizando DataFrames sin índice, lo que ofrece una presentación más limpia y ordenada.
 
 ---
 
@@ -101,8 +98,6 @@ Para consultas complejas, se recomienda generar un **modelo EER**:
 
 ## 📝 Notas finales
 
-- Ejercicio 1: Aprendes todo el proceso de trabajo con datos: desde la extracción de la API, pasando por la limpieza y transformación, hasta el almacenamiento en la base de datos, manejando errores y dejando los datos listos para análisis.
-
-- Ejercicio 2: Con la base de datos Sakila, practicas consultas avanzadas y relaciones entre tablas, comprendiendo cómo conectar y analizar información compleja.
-
+* Ejercicio 1: Practicas todo el proceso de trabajo con datos, desde su obtención hasta su preparación para análisis.
+* Ejercicio 2: Aprendes a realizar consultas y analizar información en bases de datos, incluyendo relaciones entre tablas.
 
